@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<form>
+<select id="year" onchange="getyear()">
+<option>Year</option>
+</select>
+<select id="month" onchange="getmonth()">
+<option>MON</option>
+<option>Jan</option>
+<option>Feb</option>
+<option>Mar</option>
+<option>Apr</option>
+<option>May</option>
+<option>June</option>
+<option>July</option>
+<option>Aug</option>
+<option>Sept</option>
+<option>Oct</option>
+<option>Nov</option>
+<option>Dec</option>
+</select>
+<select id="date">
+<option>DD</option>
+</select>
+</form>
+<br>
+<script>
+            var x=document.getElementById('year');
+            var i;
+            var start=2020;
+            for(i=0;i<=100;i++)
+                {
+                    var option=document.createElement("option");
+                    option.textContent=start;
+                    x.add(option);
+                    start--;
+                }
+            var year;
+            function getyear()
+            {
+                year=document.getElementById('year').value;
+            }
+            var mon;
+            function getmonth()
+            {
+                mon=document.getElementById('month').value;
+                if(mon=="Jan" || mon=="Mar" || mon=="May" || mon=="July" || mon=="Aug" || mon=="Oct" || mon=="Dec")
+                    {
+                        var select = document.getElementById('date');
+                        var length = select.options.length;
+                        for (i = length-1; i >= 0; i--) {
+                            select.options[i] = null;
+                        }
+                        var y=document.getElementById('date');
+                        for(i=1;i<=31;i++)
+                            {
+                                var option=document.createElement("option");
+                                option.textContent=i;
+                                y.add(option);
+                            }
+                    }
+                if(mon=="Apr" || mon=="June" || mon=="Sept" || mon=="Nov")
+                    {
+                        var select = document.getElementById('date');
+                        var length = select.options.length;
+                        for (i = length-1; i >= 0; i--) {
+                            select.options[i] = null;
+                        }
+                        var y=document.getElementById('date');
+                        for(i=1;i<=30;i++)
+                            {
+                                var option=document.createElement("option");
+                                option.textContent=i;
+                                y.add(option);
+                            }
+                    }
+                if(mon=="Feb")
+                    {
+                        if(parseInt(year)%4==0)
+                            {
+                                var select = document.getElementById('date');
+                                var length = select.options.length;
+                                for (i = length-1; i >= 0; i--) {
+                                    select.options[i] = null;
+                                }
+                                var y=document.getElementById('date');
+                                for(i=1;i<=29;i++)
+                                {
+                                    var option=document.createElement("option");
+                                    option.textContent=i;
+                                    y.add(option);
+                                }
+                            }
+                        else
+                            {
+                                var select = document.getElementById('date');
+                                var length = select.options.length;
+                                for (i = length-1; i >= 0; i--) {
+                                    select.options[i] = null;
+                                }
+                                var y=document.getElementById('date');
+                                for(i=1;i<=28;i++)
+                                {
+                                    var option=document.createElement("option");
+                                    option.textContent=i;
+                                    y.add(option);
+                                }
+                            }
+                    }
+            }
+</script>
+</body>
+</html>

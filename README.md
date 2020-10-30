@@ -1,2 +1,2 @@
 # SampleForLab
-Sample alb work
+Sample lab work
